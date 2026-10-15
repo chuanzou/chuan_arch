@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Chuan (Selina) Zou, Portfolio 2027: architecture and architectural conservation science.">
+<style>[hidden]{display:none!important}body{margin:0}img{max-width:100%}</style>
+<title>Portfolio 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Archivo+Narrow:wght@400;500&display=swap">
+<style>
+/* Layout: one screen — a thin name line, the book on a table, a control strip under it */
+:root{
+  /* one light-grey look in both themes, at the user's request */
+  --table:#E4E4E2;        /* light grey desk under the book */
+  --table-edge:#D9D9D7;
+  --ink:#2A2A29;
+  --muted:#6E6E6B;
+  --cover:#22417A;        /* the cover board */
+  --ctl:#F5F5F4;
+  --ctl-line:#C4C4C1;
+  --book-shadow:rgba(30,30,30,.24);
+  --f-page:"Newsreader","Times New Roman",Times,serif;
+  --f-label:"Archivo Narrow","Arial Narrow",Arial,sans-serif;
+  color-scheme:light;
+}
+html,body{height:100%}
+body{background:radial-gradient(ellipse at 50% 45%,var(--table) 60%,var(--table-edge) 100%);background-color:var(--table);color:var(--ink);
+  font-family:var(--f-page);display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding-inline:16px;padding-block:0;overflow:hidden}
+header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-block:14px 6px;max-width:1500px;width:100%;margin-inline:auto}
+header .nm{font-size:17px;letter-spacing:.01em}
+header .pf{font-family:var(--f-label);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+#stage{position:relative;min-height:0;overflow:hidden;display:flex;align-items:center;justify-content:center;padding-block:10px}
+#shift{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+body.ready #shift{transition:transform .7s cubic-bezier(.3,.7,.2,1)}
+#book{position:relative;z-index:1;flex:none}
+/* the frontispiece lies still under the cover, seen through the die-cut window */
+#under{position:absolute;z-index:0;pointer-events:none;user-select:none;display:block;width:0;height:0}
+.page{background:#fff;overflow:hidden}
+.page img{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;user-select:none;-webkit-user-drag:none;pointer-events:none}
+.page.cov{background:transparent}
+/* spine shadow — same values as the plan page's gutter, split over the two pages */
+.gut{position:absolute;top:0;bottom:0;width:6%;pointer-events:none;z-index:2}
+.--landscape .side-l .gut,.side-l.--left .gut{right:0;background:linear-gradient(270deg,rgba(0,0,0,.11),rgba(0,0,0,.035) 35%,rgba(0,0,0,0))}
+.side-r .gut{left:0;background:linear-gradient(90deg,rgba(0,0,0,.11),rgba(0,0,0,.035) 35%,rgba(0,0,0,0))}
+.side-l .gut{right:0;background:linear-gradient(270deg,rgba(0,0,0,.11),rgba(0,0,0,.035) 35%,rgba(0,0,0,0))}
+body.portrait .side-l .gut{right:auto;left:0;background:linear-gradient(90deg,rgba(0,0,0,.11),rgba(0,0,0,.035) 35%,rgba(0,0,0,0))}
+.page.cov .gut{opacity:.6}
+.stf__block{perspective:6000px!important;filter:drop-shadow(0 14px 22px var(--book-shadow)) drop-shadow(0 2px 3px var(--book-shadow))}
+footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 14px;padding-block:6px 14px;max-width:1500px;width:100%;margin-inline:auto}
+.grp{display:flex;align-items:center;gap:8px;min-width:0}
+button,select{font:inherit;color:var(--ink);background:var(--ctl);border:1px solid var(--ctl-line);border-radius:3px;height:34px}
+button{min-width:34px;padding:0 10px;cursor:pointer;font-family:var(--f-label);font-size:13px;letter-spacing:.06em}
+button:hover{border-color:var(--ink)}
+button:focus-visible,select:focus-visible{outline:2px solid var(--cover);outline-offset:2px}
+button[aria-pressed="false"]{color:var(--muted)}
+.arw{font-family:var(--f-page);font-size:18px;line-height:1;padding:0 12px}
+select{padding:0 8px;font-size:14px;max-width:min(72vw,340px);min-width:0}
+#where{font-family:var(--f-label);font-size:12.5px;letter-spacing:.08em;color:var(--muted);font-variant-numeric:tabular-nums;width:15ch;text-align:center;white-space:nowrap}
+.hint{font-family:var(--f-label);font-size:11.5px;letter-spacing:.06em;color:var(--muted);width:100%;text-align:center}
+@media (max-width:600px){header .pf{display:none}.hint{display:none}footer{gap:8px}}
+@media (prefers-reduced-motion:reduce){#shift{transition:none}}
+</style>
+</head>
+<body>
+
+
+<header><a class="nm" href="../" style="color:inherit;text-decoration:none" title="Both books">← Chuan (Selina) Zou</a><span class="pf">Portfolio 2027 · Architecture and Architectural Conservation Science</span></header>
+<main id="stage"><div id="shift"><img id="under" alt="" src="pages/p02.jpg" hidden><div id="book"></div></div></main>
+<footer>
+  <div class="grp">
+    <button class="arw" id="prev" aria-label="Previous page">‹</button>
+    <select id="toc" aria-label="Contents"></select>
+    <button class="arw" id="next" aria-label="Next page">›</button>
+  </div>
+  <div class="grp">
+    <span id="where" aria-live="polite">Cover</span>
+    <button id="snd" aria-pressed="true">Sound on</button>
+    <button id="fs">Full screen</button>
+  </div>
+  <div class="hint">Drag a page corner, click near the page edge, or use the ← → keys</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+<script>
+(function(){
+const N=76;                                   // 0 cover · 1 inside cover · 2 frontispiece … 72 · 73 blank · 74 inside back cover · 75 back cover
+const src=i=>'pages/p'+String(i).padStart(2,'0')+(i<=1||i>=73?'.svg':'.jpg');
+const SECTIONS=[
+  [0,'Cover'],[2,'Frontispiece'],
+  ['Part I · Academic Work'],
+  [3,'Academic Work'],[5,'04  Occupied Absence within Ruins'],[17,'05  Documentation for First Unitarian Church'],
+  [33,'06  Temple of Lightness'],[41,'07  Banquet and Farewell'],[53,'08  Lakeside Pavilion'],
+  ['Part II · Professional Work'],
+  [57,'Professional Work'],[59,'Ripples Becoming Everyday Ground'],[63,'Qianhai Central River Estuary'],
+  [67,'South Sanlin Station'],[71,'Guangming Dongtanyuan'],
+  ['End'],[75,'Back cover']];
+const toc=document.getElementById('toc');let og=null;
+SECTIONS.forEach(s=>{if(s.length===1){og=document.createElement('optgroup');og.label=s[0];toc.appendChild(og);return;}
+  const o=document.createElement('option');o.value=s[0];o.textContent=s[1];(og||toc).appendChild(o);});
+
+/* pages */
+const book=document.getElementById('book');const pages=[];
+for(let i=0;i<N;i++){
+  const d=document.createElement('div');
+  const side=(i===0)?'side-r':(i===N-1)?'side-l':(i%2?'side-l':'side-r');
+  const board=(i===0||i===1||i>=N-2);           // cover and back cover are boards: both sides of each leaf are hard
+  d.className='page '+side+(board?' cov':'');
+  if(board)d.dataset.density='hard';
+  d.innerHTML='<img alt="" decoding="async"><div class="gut"></div>';
+  d.querySelector('img').alt=i===0?'Cover':i===N-1?'Back cover':'Page '+i;
+  book.appendChild(d);pages.push(d);
+}
+const loaded=new Set();
+function hydrate(c){for(let j=c-4;j<=c+8;j++){if(j<0||j>=N||loaded.has(j))continue;loaded.add(j);pages[j].querySelector('img').src=src(j);}}
+hydrate(0);
+
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* size the book element to exactly one spread (or one page on narrow screens): the library mis-places pages
+   during a flip when its box is taller or wider than the book, so leave it no spare room */
+const stage=document.getElementById('stage'),RATIO=612/792;
+function fit(){
+  const cs=getComputedStyle(stage),W=stage.clientWidth,H=stage.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
+  let pw=Math.min(W/2,H*RATIO),two=pw>=300;
+  if(!two)pw=Math.min(W,H*RATIO,599);
+  pw=Math.floor(pw);book.style.width=(two?2*pw:pw)+'px';book.style.height=Math.floor(pw/RATIO)+'px';
+}
+fit();
+const pf=new St.PageFlip(book,{width:612,height:792,size:'stretch',minWidth:300,maxWidth:1400,minHeight:388,maxHeight:1812,
+  showCover:true,usePortrait:true,autoSize:false,maxShadowOpacity:.45,drawShadow:true,flippingTime:reduce?250:950,
+  mobileScrollSupport:false,showPageCorners:true,startZIndex:1});
+pf.loadFromHTML(pages);
+
+/* centre the closed book: the cover sits on the right half, the back cover on the left */
+const shift=document.getElementById('shift');
+const under=document.getElementById('under');
+function placeUnder(idx,port){
+  // shown while the cover is closed or the first spread is open, so the frontispiece never moves with the cover
+  under.hidden=!(port?idx===0:idx<=2);
+}
+// keep the frontispiece glued to the page the library has laid out (the frontispiece when it is drawn, else the
+// closed cover); only re-measure while no page is moving, so it never follows a turning leaf
+let pfState='read';
+function align(){
+  if(!under.hidden&&pfState==='read'){
+    const ref=pages[2].style.display==='block'?pages[2]:pages[0];
+    if(ref.style.display==='block'){
+      const r=ref.getBoundingClientRect(),sh=shift.getBoundingClientRect();
+      const L=(r.left-sh.left)+'px',T=(r.top-sh.top)+'px',W=r.width+'px',H=r.height+'px';
+      const st=under.style;if(st.left!==L||st.top!==T||st.width!==W||st.height!==H)Object.assign(st,{left:L,top:T,width:W,height:H});
+    }
+  }
+  requestAnimationFrame(align);
+}
+requestAnimationFrame(align);
+function place(){
+  const idx=pf.getCurrentPageIndex(),port=pf.getOrientation()==='portrait';
+  document.body.classList.toggle('portrait',port);
+  let dx=0;
+  if(!port){const r=pf.getRender().getRect();if(idx===0)dx=-r.pageWidth/2;else if(idx>=N-1)dx=r.pageWidth/2;}
+  shift.style.transform=dx?`translateX(${dx}px)`:'';
+  placeUnder(idx,port);
+}
+const where=document.getElementById('where');
+function label(){
+  const i=pf.getCurrentPageIndex(),port=pf.getOrientation()==='portrait';
+  let t;
+  if(i===0)t='Cover';else if(i>=N-1)t='Back cover';
+  else if(i>72)t='End';
+  else if(port)t='p. '+i+' / 72';
+  else{const a=i%2?i:i-1;t='pp. '+a+'–'+Math.min(a+1,72)+' / 72';}
+  where.textContent=t;
+  let best=SECTIONS.filter(s=>s.length===2&&s[0]<=i+(port?0:1)).pop();if(best)toc.value=best[0];
+}
+pf.on('flip',e=>{hydrate(e.data);place();label();});
+pf.on('changeOrientation',()=>{place();label();});
+pf.on('init',()=>{place();label();});
+
+/* if the control strip changes height, refit the book to the stage */
+if(window.ResizeObserver){let ro_t=0;new ResizeObserver(()=>{clearTimeout(ro_t);ro_t=setTimeout(()=>{fit();pf.update();place();},40);}).observe(document.getElementById('stage'));}
+setTimeout(()=>{place();label();requestAnimationFrame(()=>document.body.classList.add('ready'));},50);
+
+/* paper sound, synthesised: a filtered noise swish, a few fibre crackles, and the soft slap of the page landing */
+let ctx=null,noise=null,soundOn=true;
+try{if(localStorage.getItem('pf27-sound')==='0')soundOn=false;}catch(e){}
+const sndBtn=document.getElementById('snd');
+function paintSnd(){sndBtn.setAttribute('aria-pressed',String(soundOn));sndBtn.textContent=soundOn?'Sound on':'Sound off';}
+paintSnd();
+function audio(){
+  if(!ctx){const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return null;ctx=new AC();
+    const len=ctx.sampleRate*1.2;noise=ctx.createBuffer(1,len,ctx.sampleRate);const d=noise.getChannelData(0);
+    let b=0;for(let i=0;i<len;i++){const w=Math.random()*2-1;b=.985*b+.015*w;d[i]=w*.6+b*4;}}
+  if(ctx.state==='suspended')ctx.resume();return ctx;
+}
+function burst(t,dur,type,f0,f1,q,peak,attack){
+  const s=ctx.createBufferSource();s.buffer=noise;
+  const f=ctx.createBiquadFilter();f.type=type;f.Q.value=q;f.frequency.setValueAtTime(f0,t);f.frequency.exponentialRampToValueAtTime(f1,t+dur);
+  const g=ctx.createGain();g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(peak,t+attack);g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+  s.connect(f);f.connect(g);g.connect(ctx.destination);s.start(t,Math.random()*.5,dur+.05);
+}
+let lastSnd=0;
+function flipSound(hard){
+  if(!soundOn)return;const now=performance.now();if(now-lastSnd<180)return;lastSnd=now;
+  const c=audio();if(!c)return;const t=c.currentTime+.01;const T=reduce?.25:.62;
+  if(hard){
+    burst(t,T*.8,'bandpass',1400,500,.6,.16,.08);
+    burst(t+T*.78,.16,'lowpass',260,120,.7,.55,.006);
+  }else{
+    burst(t,T,'bandpass',3600,1100,.55,.13,.07);          // swish of the leaf through the air
+    burst(t+.02,T*.7,'highpass',5200,3000,.4,.035,.05);   // airy top
+    for(let k=0;k<5;k++)burst(t+Math.random()*T*.55,.025,'highpass',2600,2200,.8,.06+Math.random()*.05,.002); // fibre crackles
+    burst(t+T*.86,.11,'lowpass',520,200,.6,.22,.005);     // page lands
+  }
+}
+pf.on('changeState',e=>{pfState=e.data;if(e.data==='flipping'){const i=pf.getCurrentPageIndex();flipSound(i<=1||i>=N-2);}});
+sndBtn.addEventListener('click',()=>{soundOn=!soundOn;paintSnd();try{localStorage.setItem('pf27-sound',soundOn?'1':'0');}catch(e){}if(soundOn)audio();});
+document.addEventListener('pointerdown',()=>{if(soundOn)audio();},{once:true});
+
+/* controls */
+document.getElementById('prev').addEventListener('click',()=>pf.flipPrev());
+document.getElementById('next').addEventListener('click',()=>pf.flipNext());
+toc.addEventListener('change',()=>{const n=+toc.value;hydrate(n);if(n%2===0&&n!==0&&n<N-1)hydrate(n-1);pf.flip(n);toc.blur();});
+document.addEventListener('keydown',e=>{
+  if(e.target===toc)return;
+  if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();pf.flipNext();}
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();pf.flipPrev();}
+  else if(e.key==='Home'){pf.flip(0);}else if(e.key==='End'){hydrate(N-1);pf.flip(N-1);}
+});
+const fsBtn=document.getElementById('fs');
+if(!document.fullscreenEnabled)fsBtn.hidden=true;
+fsBtn.addEventListener('click',()=>{
+  const p=document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();
+  if(p&&p.catch)p.catch(()=>{fsBtn.hidden=true;});
+});
+document.addEventListener('fullscreenchange',()=>{fsBtn.textContent=document.fullscreenElement?'Exit full screen':'Full screen';setTimeout(()=>pf.update(),80);});
+})();
+</script>
+
+</body>
+</html>
