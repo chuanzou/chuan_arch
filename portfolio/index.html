@@ -85,17 +85,17 @@ select{padding:0 8px;font-size:14px;max-width:min(72vw,340px);min-width:0}
 <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
 <script>
 (function(){
-const N=76;                                   // 0 cover · 1 inside cover · 2 frontispiece … 72 · 73 blank · 74 inside back cover · 75 back cover
-const src=i=>'pages/p'+String(i).padStart(2,'0')+(i<=1||i>=73?'.svg':'.jpg');
+const N=78;                                   // 0 cover · 1 inside cover · 2 frontispiece … 74 · 75 blank · 76 inside back cover · 77 back cover
+const src=i=>'pages/p'+String(i).padStart(2,'0')+(i<=1||i>=75?'.svg':'.jpg');
 const SECTIONS=[
-  [0,'Cover'],[2,'Frontispiece'],
+  [0,'Cover'],[2,'Frontispiece'],[3,'Curriculum Vitae'],
   ['Part I · Academic Work'],
-  [3,'Academic Work'],[5,'04  Occupied Absence within Ruins'],[17,'05  Documentation for First Unitarian Church'],
-  [33,'06  Temple of Lightness'],[41,'07  Banquet and Farewell'],[53,'08  Lakeside Pavilion'],
+  [5,'Academic Work'],[7,'04  Occupied Absence within Ruins'],[19,'05  Documentation for First Unitarian Church'],
+  [35,'06  Temple of Lightness'],[43,'07  Banquet and Farewell'],[55,'08  Lakeside Pavilion'],
   ['Part II · Professional Work'],
-  [57,'Professional Work'],[59,'Ripples Becoming Everyday Ground'],[63,'Qianhai Central River Estuary'],
-  [67,'South Sanlin Station'],[71,'Guangming Dongtanyuan'],
-  ['End'],[75,'Back cover']];
+  [59,'Professional Work'],[61,'Ripples Becoming Everyday Ground'],[65,'Qianhai Central River Estuary'],
+  [69,'South Sanlin Station'],[73,'Guangming Dongtanyuan'],
+  ['End'],[77,'Back cover']];
 const toc=document.getElementById('toc');let og=null;
 SECTIONS.forEach(s=>{if(s.length===1){og=document.createElement('optgroup');og.label=s[0];toc.appendChild(og);return;}
   const o=document.createElement('option');o.value=s[0];o.textContent=s[1];(og||toc).appendChild(o);});
@@ -167,9 +167,9 @@ function label(){
   const i=pf.getCurrentPageIndex(),port=pf.getOrientation()==='portrait';
   let t;
   if(i===0)t='Cover';else if(i>=N-1)t='Back cover';
-  else if(i>72)t='End';
-  else if(port)t='p. '+i+' / 72';
-  else{const a=i%2?i:i-1;t='pp. '+a+'–'+Math.min(a+1,72)+' / 72';}
+  else if(i>74)t='End';
+  else if(port)t='p. '+i+' / 74';
+  else{const a=i%2?i:i-1;t='pp. '+a+'–'+Math.min(a+1,74)+' / 74';}
   where.textContent=t;
   let best=SECTIONS.filter(s=>s.length===2&&s[0]<=i+(port?0:1)).pop();if(best)toc.value=best[0];
 }
